@@ -8,10 +8,11 @@ public class ProfilDepend extends Portefeuille {
     @Override
     public boolean verifyObjectif() {
         if (isActionDown()) {
-            if ()
-            System.out.println("Action a la baisse");
-            sellAction();
-            return true;
+            if (isActionDownBy5()) {
+                System.out.println("Action a la baisse");
+                sellAction();
+                return true;
+            }
         }
         System.out.println("Rien effectué");
         return false;
@@ -27,7 +28,7 @@ public class ProfilDepend extends Portefeuille {
         return false;
     }
 
-    public boolean isActionDownBy5 {
+    public boolean isActionDownBy5() {
         for (ActifsIterator it = actifs; it.hasNext(); ) {
             Actif actif = it.next();
             if (actif.getAction().getAncien() - actif.getAction().getPrix() >= 5) {
