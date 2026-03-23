@@ -1,11 +1,11 @@
 ﻿package cstjean.prog4.exo05;
 
 public abstract class Portefeuille {
-    private final double objectif;
-    private final ActifsIterator actifs;
-    private final double valeurInit;
-    private final String name;
-    private final String profil;
+    protected final double objectif;
+    protected final ActifsIterator actifs;
+    protected final double valeurInit;
+    protected final String name;
+    protected final String profil;
 
     public Portefeuille(double objectif, ActifsIterator actifs, String name, String profil) {
         this.objectif = objectif;
@@ -45,7 +45,8 @@ public abstract class Portefeuille {
 
     public double getValeur() {
         double value = 0.0;
-        for (Actif actif : actifs) {
+        for (ActifsIterator it = actifs; it.hasNext(); ) {
+            Actif actif = it.next();
             value += actif.getAction().getPrix() * actif.getQuantite();
         }
         return value;
