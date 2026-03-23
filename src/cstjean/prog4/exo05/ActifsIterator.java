@@ -3,7 +3,7 @@
 import java.util.Iterator;
 import java.util.List;
 
-public class ActifsIterator implements Iterator {
+public class ActifsIterator implements Iterator<Actif> {
     private List<Actif> actifs;
     private int index = 0;
 
