@@ -6,17 +6,22 @@ import java.util.List;
 public class Action {
     private String nom;
     private double prix;
+    private double ancien;
     private boolean isDown;
     private List<Observer> observers = new ArrayList<>();
     public Action(String nom, double prix) {
         this.nom = nom;
         this.prix = prix;
+        this.ancien = 0;
     }
     public String getNom() {
         return nom;
     }
     public double getPrix() {
         return prix;
+    }
+    public double getAncien() {
+        return ancien;
     }
 
     public boolean getIsDown() {
