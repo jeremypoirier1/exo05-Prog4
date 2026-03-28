@@ -1,4 +1,4 @@
-﻿package cstjean.prog4.exo05;
+package cstjean.prog4.exo05;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-﻿package cstjean.prog4.exo05;
+package cstjean.prog4.exo05;
 
 public abstract class Portefeuille {
     protected final double objectif;

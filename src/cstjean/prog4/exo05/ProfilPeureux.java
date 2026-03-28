@@ -1,4 +1,4 @@
-﻿package cstjean.prog4.exo05;
+package cstjean.prog4.exo05;
 
 public class ProfilPeureux extends Portefeuille {
     public ProfilPeureux(double objectif, ActifsIterator actifs, String name) {

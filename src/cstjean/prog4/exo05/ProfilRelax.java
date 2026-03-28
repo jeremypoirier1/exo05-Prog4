@@ -1,4 +1,4 @@
-﻿package cstjean.prog4.exo05;
+package cstjean.prog4.exo05;
 
 public class ProfilRelax extends Portefeuille{
     public ProfilRelax(double objectif, ActifsIterator actifs, String name) {
