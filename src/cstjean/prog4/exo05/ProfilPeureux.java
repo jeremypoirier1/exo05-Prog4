@@ -15,14 +15,4 @@ public class ProfilPeureux extends Portefeuille {
         System.out.println("Rien effectué");
         return false;
     }
-
-    public boolean isActionDown() {
-        for (ActifsIterator it = actifs; it.hasNext(); ) {
-            Actif actif = it.next();
-            if (actif.getAction().getIsDown()) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

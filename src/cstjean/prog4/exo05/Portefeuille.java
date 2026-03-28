@@ -51,4 +51,14 @@ public abstract class Portefeuille {
         }
         return value;
     }
+
+    public boolean isActionDown() {
+        for (ActifsIterator it = actifs; it.hasNext(); ) {
+            Actif actif = it.next();
+            if (actif.getAction().getIsDown()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
