@@ -21,6 +21,11 @@ public class ProfilDepend extends Portefeuille {
                 }
             }
         }
+        if (getValeur() < valeurInit) {
+            System.out.println("Pas de panique l'ami ! T'as encore le temps !");
+            return false;
+        }
+
         return super.verifyObjectif();
     }
 
