@@ -14,22 +14,12 @@ public abstract class Portefeuille extends Observer{
         this.actifs = actifs;
         this.name = name;
         this.profil = profil;
-        this.valeurInit = calculerValeurInitiale();
+        this.valeurInit = getValeur();
         this.actifs.reset();
         while (this.actifs.hasNext()) {
             Actif actif = this.actifs.next();
             actif.getAction().subscribe(this);
         }
-    }
-
-    private double calculerValeurInitiale() {
-        double total = 0;
-        actifs.reset();
-        while (actifs.hasNext()) {
-            Actif a = actifs.next();
-            total += a.getAction().getPrixInitial() * a.getQuantite();
-        }
-        return total;
     }
 
 
