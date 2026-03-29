@@ -1,5 +1,7 @@
 package cstjean.prog4.exo05;
 
+import java.text.NumberFormat;
+
 public abstract class Portefeuille {
     protected final double objectif;
     protected final ActifsIterator actifs;
@@ -26,26 +28,29 @@ public abstract class Portefeuille {
     }
 
     public boolean verifyObjectif() {
-        if (objectif >= getValeur()) {
+        if (objectif <= getValeur()) {
             System.out.println("Objectif atteint");
-            sellAction();
             return true;
         }
-        System.out.println("Objectif non atteint");
+        System.out.println("Rien effectué");
         return false;
     }
 
     public void sellAction() {
+        NumberFormat defaultFormatter = NumberFormat.getCurrencyInstance();
         System.out.printf("Vente d'action du portefeuille «%s»\n", name);
-        System.out.println("Valeur initiale : " + valeurInit);
+        System.out.println("Valeur initiale : " + defaultFormatter.format(valeurInit));
         double valeurActuel = getValeur();
-        System.out.println("Valeur actuel : " + valeurActuel);
-        System.out.println("Profit : " + (valeurActuel - valeurInit));
+        System.out.println("Valeur actuel : " + defaultFormatter.format(valeurActuel));
+        System.out.println("Objectif : " + defaultFormatter.format(objectif));
+        System.out.println("Profit : " + defaultFormatter.format(valeurActuel - valeurInit));
     }
 
     public double getValeur() {
         double value = 0.0;
-        for (ActifsIterator it = actifs; it.hasNext(); ) {
+        actifs.reset();
+        ActifsIterator it = actifs;
+        while (it.hasNext()) {
             Actif actif = it.next();
             value += actif.getAction().getPrix() * actif.getQuantite();
         }
@@ -53,6 +58,7 @@ public abstract class Portefeuille {
     }
 
     public boolean isActionDown() {
+        actifs.reset();
         for (ActifsIterator it = actifs; it.hasNext(); ) {
             Actif actif = it.next();
             if (actif.getAction().getIsDown()) {

@@ -1,8 +1,8 @@
 package cstjean.prog4.exo05;
 
 public class Actif {
-    private Action action;
-    private int quantite;
+    private final Action action;
+    private final int quantite;
 
     public Actif(Action action, int quantite) {
         this.action = action;

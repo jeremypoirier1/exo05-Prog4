@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    static void main() {
         Action actionA = new Action("Action A", 10.00);
         Action actionB = new Action("Action B", 15.00);
         Action actionC = new Action("Action C", 20.00);
 
-        System.out.println("EXERCICE 5 \u2013 GESTIONNAIRE DE PORTEFEUILLE INTELLIGENT");
+        System.out.println("EXERCICE 5 – GESTIONNAIRE DE PORTEFEUILLE INTELLIGENT");
         System.out.println("2");
         System.out.printf("%s : %.2f$  %s : %.2f$  %s : %.2f$\n\n",
                 actionA.getNom(), actionA.getPrix(),
@@ -76,23 +76,20 @@ public class Main {
         actionA.setPrix(5.00);
         actionA.setPrix(10.00);
 
-        System.out.println("\nEXERCICE 5 \u2013 GESTIONNAIRE DE PORTEFEUILLE INTELLIGENT");
-        System.out.println("4");
-        Portefeuille p4 = new ProfilRelax(500.00, new ActifsIterator(actifs4), "Portefeuille 4");
-        afficherPortefeuille(p4, actifs4);
-
         System.out.println("\n--------------------");
         System.out.println("Exemple 4");
         System.out.println("--------------------");
         System.out.println("\nChangement de profil pour le portefeuille «Portefeuille 4» : «Relax»\n");
 
+        Portefeuille p4 = new ProfilRelax(500.00, new ActifsIterator(actifs4), "Portefeuille 4");
+        afficherPortefeuille(p4, actifs4);
         actionA.setPrix(5.00);
         p4.verificationPortefeuille();
 
         System.out.println("\nChangement de profil pour le portefeuille «Portefeuille 4» : «Peureux»\n");
+        actionA.setPrix(6.00);
         p4 = new ProfilPeureux(500.00, new ActifsIterator(actifs4), "Portefeuille 4");
 
-        actionA.setPrix(6.00);
         p4.verificationPortefeuille();
 
         actionA.setPrix(5.00);
@@ -100,8 +97,6 @@ public class Main {
 
         actionA.setPrix(10.00);
 
-        System.out.println("\nEXERCICE 5 \u2013 GESTIONNAIRE DE PORTEFEUILLE INTELLIGENT");
-        System.out.println("5");
         Portefeuille p5 = new ProfilDepend(500.00, new ActifsIterator(actifs5), "Portefeuille 5");
         afficherPortefeuille(p5, actifs5);
 
@@ -136,6 +131,6 @@ public class Main {
         }
 
         sb.append(String.format(". Objectif : %.2f$.", p.objectif).replace(',', '.'));
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }

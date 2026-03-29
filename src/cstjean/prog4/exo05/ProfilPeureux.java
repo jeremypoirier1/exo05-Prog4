@@ -9,10 +9,8 @@ public class ProfilPeureux extends Portefeuille {
     public boolean verifyObjectif() {
         if (valeurInit > getValeur() && isActionDown()) {
             System.out.println("Action a la baisse");
-            sellAction();
             return true;
         }
-        System.out.println("Rien effectué");
-        return false;
+        return super.verifyObjectif();
     }
 }
