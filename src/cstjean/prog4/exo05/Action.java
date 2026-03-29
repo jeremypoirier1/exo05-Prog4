@@ -7,6 +7,7 @@ public class Action {
     private final String nom;
     private double prix;
     private double ancien;
+    private final double prixInitial;
     private boolean isDown;
     private final List<Observer> observers = new ArrayList<>();
 
@@ -14,6 +15,7 @@ public class Action {
         this.nom = nom;
         this.prix = prix;
         this.ancien = 0;
+        this.prixInitial = prix;
     }
 
     public String getNom() {
@@ -23,6 +25,11 @@ public class Action {
     public double getPrix() {
         return prix;
     }
+
+    public double getPrixInitial() {
+        return prixInitial;
+    }
+
 
     public void setPrix(double nouveauPrix) {
         ancien = prix;

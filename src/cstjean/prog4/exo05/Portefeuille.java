@@ -2,7 +2,7 @@ package cstjean.prog4.exo05;
 
 import java.text.NumberFormat;
 
-public abstract class Portefeuille {
+public abstract class Portefeuille extends Observer{
     protected final double objectif;
     protected final ActifsIterator actifs;
     protected final double valeurInit;
@@ -14,8 +14,24 @@ public abstract class Portefeuille {
         this.actifs = actifs;
         this.name = name;
         this.profil = profil;
-        valeurInit = getValeur();
+        this.valeurInit = calculerValeurInitiale();
+        this.actifs.reset();
+        while (this.actifs.hasNext()) {
+            Actif actif = this.actifs.next();
+            actif.getAction().subscribe(this);
+        }
     }
+
+    private double calculerValeurInitiale() {
+        double total = 0;
+        actifs.reset();
+        while (actifs.hasNext()) {
+            Actif a = actifs.next();
+            total += a.getAction().getPrixInitial() * a.getQuantite();
+        }
+        return total;
+    }
+
 
     public final void verificationPortefeuille() {
         System.out.println("###############");
@@ -66,5 +82,9 @@ public abstract class Portefeuille {
             }
         }
         return false;
+    }
+
+    @Override
+    public void onPrixChanger(Action action, double ancien, double nouveauPrix) {
     }
 }
