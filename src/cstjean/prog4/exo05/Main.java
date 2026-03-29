@@ -55,12 +55,11 @@ public class Main {
         System.out.println("Exemple 1");
         System.out.println("--------------------");
         actionA.setPrix(20.00);
-        p1.verificationPortefeuille(); // On appelle manuellement l'évaluation
-
+        p1.verificationPortefeuille();
         actionA.setPrix(50.00);
         p1.verificationPortefeuille();
 
-        actionA.setPrix(10.00); // Pas d'appel ensuite car il est censé été vendu au $50
+        actionA.setPrix(10.00);
 
         System.out.println("\n--------------------");
         System.out.println("Exemple 2");
@@ -73,7 +72,7 @@ public class Main {
         System.out.println("\n--------------------");
         System.out.println("Exemple 3");
         System.out.println("--------------------");
-        p3.verificationPortefeuille(); // Appel initial immédiat
+        p3.verificationPortefeuille();
         actionA.setPrix(5.00);
         actionA.setPrix(10.00);
 
@@ -91,7 +90,6 @@ public class Main {
         p4.verificationPortefeuille();
 
         System.out.println("\nChangement de profil pour le portefeuille «Portefeuille 4» : «Peureux»\n");
-        // On remplace le portefeuille par un "Peureux" pour simuler le changement dans le simple Main
         p4 = new ProfilPeureux(500.00, new ActifsIterator(actifs4), "Portefeuille 4");
 
         actionA.setPrix(6.00);
